@@ -19,7 +19,7 @@
           </ul>
         </li>
         <li class="dropdown">
-            <a href="index.html" class="nav-link"><i data-feather="tag"></i><span>Category</span></a>
+            <a href="{{route('category.index')}}" class="nav-link"><i data-feather="tag"></i><span>Category</span></a>
           </li>
         <li class="dropdown">
             <a href="index.html" class="nav-link"><i data-feather="file-text"></i><span>Post</span></a>

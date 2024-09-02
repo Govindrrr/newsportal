@@ -92,7 +92,7 @@ class CompanyController extends Controller
     {
         //return to edit view
         $company = Company::find($id);
-        return view('admin.company.edit',compact('company'));
+       return view('admin.company.edit', compact('company'));
        
     }
 
@@ -134,6 +134,7 @@ class CompanyController extends Controller
     {
         $company = Company::find($id);
         $company->delete();
+        unlink(public_path($company->logo));
        
 
         return redirect()->back();
