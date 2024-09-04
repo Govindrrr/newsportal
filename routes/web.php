@@ -1,14 +1,23 @@
 <?php
 
+use App\Http\Controllers\admin\AdvertiseController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CompanyController;
+use App\Http\Controllers\admin\PostController;
+use App\Http\Controllers\frontned\pageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/', [pageController::class, 'home'])->name('home');
+
+
+
+
+//Admindashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -20,6 +29,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/admin/company', CompanyController::class)->names('company');
     Route::resource('/admin/category', CategoryController::class)->names('category');
+    Route::resource('/admin/advertise',AdvertiseController::class)->names('advertise');
+    Route::resource('/admin/post', PostController::class)->names('post');
 });
 
 require __DIR__.'/auth.php';

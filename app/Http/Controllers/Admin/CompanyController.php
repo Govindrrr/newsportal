@@ -36,19 +36,21 @@ class CompanyController extends Controller
     public function store(Request $req)
     {
         // Validate the input data
-        $req->validate([
-            "name" => "required|max:255",
-            "logo" => "required|",
-            "email" => "required|email",
-            "phone" => "required|digits:10",
-            "address" => "required",
-            "reg_no" => "required",
-            "pan" => "required",
-            "youtube" => "nullable|url",
-            "facebook" => "nullable|url"
-        ]);
-    
-        // Save the company data
+
+        // $req->validate([
+        //     "name" => "required|max:255",
+        //     "logo" => "required|",
+        //     "email" => "required|email",
+        //     "phone" => "required|digits:10",
+        //     "address" => "required",
+        //     "reg_no" => "required",
+        //     "pan" => "required",
+        //     "youtube" => "nullable|url",
+        //     "facebook" => "nullable|url"
+        // ]);
+        
+        // return $req;
+        // // Save the company data
         $company = new Company();
         $company->name = $req->name;
         $company->email = $req->email;
