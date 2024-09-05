@@ -1,0 +1,17 @@
+
+
+:root{
+    --primary : #d50707;
+}
+
+.primary {
+    color: var(--primary);
+}
+.bg-primary{
+    background-color: var(--primary);
+}
+
+.container{
+    width: 90%;
+    margin: auto;
+}
