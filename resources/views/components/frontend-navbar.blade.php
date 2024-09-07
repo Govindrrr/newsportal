@@ -1,16 +1,35 @@
 <nav class="bg-red-600 py-5 text-white">
     <div class="container">
         <div>
-            <ul class="md:flex gap-7 hidden">
-                <li class=" font-semibold"><a href="{{ route('home') }}">गृहपृष्ठ</a></li>
+            <div class="grid grid-cols-12">
+           <div class="col-span-10"> <ul class="md:flex gap-7 hidden">
+            <li class=" font-semibold {{ Request::routeIs('home') ? 'active' : '' }}"><a href="{{ route('home') }}">गृहपृष्ठ</a></li>
 
-                @foreach ($categories as $category)
-                <li class=" font-semibold"><a href="{{ route('home') }}">{{$category->nep_title}}</a></li>
+            @foreach ($categories as $category)
+        
+            <li class=" font-semibold activeh {{ Request::is('category/' . $category->slug) ? 'active' : '' }}"><a href="{{ route('cat',$category->slug) }}">{{$category->nep_title}}</a></li>
+            
+            @endforeach
+           
 
-                @endforeach
-               
-            </ul>
-
+        </ul></div>
+           <div class="col-span-2">
+            <div>
+                <form action="{{route('search')}}" method="get">
+                    <div class="relative">
+                        <input required type="text" name="q" id="search"
+                            class="autocomplete w-full rounded-md text-gray-700 pr-10"
+                            placeholder="Search by editor">
+                        <button type="submit" class="text-red-600 absolute right-3 translate-y-[50%]"
+                            aria-label="Search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+           </div>
+        </div>
+           
 
 
             <!-- drawer init and show -->
@@ -37,7 +56,7 @@
                 <ul class="space-y-4">
                     <li class=" font-semibold"><a href="{{ route('home') }}">गृहपृष्ठ</a></li>
                     @foreach ($categories as $category)
-                    <li class=" font-semibold"><a href="{{ route('home') }}">{{$category->nep_title}}</a></li>
+                    <li class=" font-semibold"><a href="{{ route('cat', $category->slug) }}">{{$category->nep_title}}</a></li>
     
                     @endforeach
                 </ul>

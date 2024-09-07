@@ -12,9 +12,9 @@
 
                     <div class="grid grid-cols-12 gap-3 mt-2">
                         @foreach ($newses as $news)
-                        <div class="col-span-6">
-                           <x-news-cart :news='$news'/>
-                        </div>
+                            <div class="col-span-6">
+                                <x-news-cart :news='$news' />
+                            </div>
                         @endforeach
                     </div>
 
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     @foreach ($tranding_news as $news)
-                    <x-news-cart :news='$news'/>
+                        <x-news-cart :news='$news' />
                     @endforeach
                 </div>
             </div>
@@ -45,19 +45,26 @@
                         {{-- category_title --}}
                         <img class="h-[15px]" src="https://jawaaf.com/frontend/images/redline.png" alt="">
                         <div class="grid grid-cols-12 gap-4 p-4">
-                            <img class="h-550px] w-full" src="{{$category->Posts[0]->image}}"
-                                    alt="">
-                                   <h1 class="text-2xl p-2 font-bold">उन्नत जातको मुर्रा भैँसीका पाडापाडी वितरण</h1>
-                            @foreach ($category->Posts as $post)
 
-                           
-    
-                                <div class="col-span-4">
-                                    
+                            @foreach ($category->Posts as $index => $post)
+                                @if ($index == 0)
+                                    <div class="col-span-4">
+                                        <div>
+                                            <a href="{{ route('news', $news->id) }}">
 
-                                    <x-news-cart :news='$post'/>
-                                   
-                                </div>
+                                                <img class="h-[250px] w-full" src="{{ $post->image }}" alt="">
+                                                <h1 class="text-xl p-2 font-bold text-slate-700">उन्नत जातको मुर्रा
+                                                    भैँसीका पाडापाडी वितरण
+                                                </h1>
+                                        </div>
+                                        </a>
+                                        
+                                    </div>
+                                @else
+                                    <div class="col-span-4">
+                                        <x-news-cart :news='$post' />
+                                    </div>
+                                @endif
                             @endforeach
                         </div>
                     @endif

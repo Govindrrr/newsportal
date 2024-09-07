@@ -15,3 +15,10 @@
     width: 90%;
     margin: auto;
 }
+.activeh:hover{
+    font-weight: 600;
+    color: rgb(255, 242, 0);
+}
+.active{
+    color:rgb(255, 242, 0);
+}
