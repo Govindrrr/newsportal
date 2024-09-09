@@ -39,6 +39,8 @@ Route::middleware('auth')->group(function () {
         Route::resource('/admin/advertise', AdvertiseController::class)->names('advertise');
         Route::resource('/admin/post', PostController::class)->names('post');
         Route::resource('/admin/user', UserController::class)->names('user');
+        Route::get('/export', [UserController::class,'export'])->name('export');
+
     });
 });
 

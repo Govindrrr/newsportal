@@ -4,7 +4,9 @@
           <div class="card-header justify-content-between">
               <h4>Users</h4>
             
-              <a href="{{route('user.create')}}" class="btn btn-primary">ADD</a>
+              <a href="{{route('export')}}" class="btn btn-primary">Download</a>
+              <a href="{{route('user.create')}}" class="btn btn-primary">Upload</a>
+
               
              
           </div>
