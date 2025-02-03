@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Company;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\View;
 use PhpParser\Node\Expr\FuncCall;
 
@@ -41,8 +42,11 @@ class pageController extends Controller
 
     public function news($id){
         $news = Post::find($id);
-        $news->increment('views');
-
+        $cookie = Cookie::get("post$id");
+        if(!$cookie || $cookie != $id){
+            $news->increment('views');
+            Cookie::queue(Cookie::make("post$id",$id, 1));
+        };
         $advertise = Advertise::where('status','1')->get();
         return view('frontend.news',compact('advertise','news'));
     }

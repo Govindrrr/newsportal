@@ -5,7 +5,7 @@
         <div class="container">
             <div class="grid grid-cols-12 gap-5">
                 <div class="col-span-8">
-                    <img class="h-550px] w-full" src="https://jawaaf.com/storage/01J70A0G6JSCZEP6AQ0WD6WF8T.jpg"
+                    <img class="h-550px] w-full object-cover" src="https://jawaaf.com/storage/01J70A0G6JSCZEP6AQ0WD6WF8T.jpg"
                         alt="">
                     <h1 class="text-2xl p-2 font-bold">उन्नत जातको मुर्रा भैँसीका पाडापाडी वितरण</h1>
 
@@ -43,7 +43,7 @@
                     @if (count($category->posts) > 0)
                         <h1 class="text-red-700 font-semibold text-2xl">{{ $category->nep_title }}</h1>
                         {{-- category_title --}}
-                        <img class="h-[15px]" src="https://jawaaf.com/frontend/images/redline.png" alt="">
+                        <img class="h-[15px] object-cover" src="https://jawaaf.com/frontend/images/redline.png" alt="">
                         <div class="grid grid-cols-12 gap-4 p-4">
 
                             @foreach ($category->Posts as $index => $post)
@@ -52,9 +52,8 @@
                                         <div>
                                             <a href="{{ route('news', $news->id) }}">
 
-                                                <img class="h-[250px] w-full" src="{{ $post->image }}" alt="">
-                                                <h1 class="text-xl p-2 font-bold text-slate-700">उन्नत जातको मुर्रा
-                                                    भैँसीका पाडापाडी वितरण
+                                                <img class="h-[250px] w-full object-cover" src="{{ $post->image }}" alt="">
+                                                <h1 class="text-xl p-2 font-bold text-slate-700">{{$post->post_title}}
                                                 </h1>
                                         </div>
                                         </a>

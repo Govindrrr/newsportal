@@ -72,6 +72,7 @@ class CategoryController extends Controller
      */
     public function update(Request $req, string $id)
     {
+        // dd($req)
         //
         $req->validate([
             "title"=>"required|",
@@ -79,8 +80,8 @@ class CategoryController extends Controller
            ]);
            $Category = Category::find($id);
            $Category->title = $req->title;
-           $Category->nep_title = Str::slug($req->nep_title);
-           $Category->slug = $req->title;
+           $Category->nep_title = $req->nep_title;
+           $Category->slug = Str::slug($req->title);
            $Category->update();
     
            toast('Your data updated Successfully!','success');

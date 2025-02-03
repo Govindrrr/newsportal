@@ -7,7 +7,7 @@
         
         <div class="col-span-4">
 
-            <img class="w-full h-[80px] rounded-lg" src="{{ asset($news->image) }}"
+            <img class="w-full h-[80px] rounded-lg object-cover" src="{{ asset($news->image) }}"
                 alt="">
         </div>
         <div class="col-span-8">

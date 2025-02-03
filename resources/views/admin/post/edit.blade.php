@@ -16,7 +16,9 @@
                             <div class="col-md-6 p-3">
                                 <label for="categories">Categories<span class="text-danger">*</span></label>
                                 <select name="categories[]" id="categories" class="select2 form-control" multiple>
+                                    
                                     @foreach ($categories as $category)
+                                    
                                      <option value="{{$category->id}}" @foreach ($post->Categorys as $cat)
                                          {{$cat->id == $category->id ? 'selected' : ''}}
                                      @endforeach>{{$category->title}}</option>

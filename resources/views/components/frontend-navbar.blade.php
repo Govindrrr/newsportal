@@ -1,4 +1,4 @@
-<nav class="bg-red-600 py-5 text-white">
+<nav class="bg-primary py-5 text-white">
     <div class="container">
         <div>
             <div class="grid grid-cols-12">
